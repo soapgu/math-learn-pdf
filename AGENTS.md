@@ -1,13 +1,32 @@
 # math-learn-pdf
 
-小学数学学习 PDF 资源仓库。
+小学数学学习 PDF 资源仓库。上海教育出版社（五·四学制）教材扫描 PDF 及配套文本、知识点分析。
 
-## 结构
+## 文件
 
-- `二年级上册数学.pdf` — 唯一资源文件
+| 文件 | 说明 |
+|------|------|
+| `二年级上册数学.pdf` | 教材扫描 PDF |
+| `二年级上册数学.txt` | Apple Vision OCR 提取的完整文本 |
+| `大纲与知识点.md` | 全书 7 单元结构树 + 逐节知识点 + 能力图谱 |
+| `拓展阅读.md` | 与《十万个为什么（第六版）·数学》的逐单元关联映射 |
+| `extract_text.swift` | 零依赖 OCR 提取脚本（macOS 专用） |
 
-## 操作
+## 命名规则
 
-- 此仓库不含代码，无构建/测试/类型检查命令
-- 新增 PDF 按 `{年级}{上下册}数学.pdf` 命名，例如 `三年级下册数学.pdf`
-- 提交使用 `git-cz --non-interactive --type docs --scope pdf --subject "<描述>"`
+新增 PDF 按 `{年级}{上下册}数学.pdf` 命名，例如 `三年级下册数学.pdf`。
+
+## 文本提取
+
+```bash
+swift extract_text.swift "二年级上册数学.pdf"
+# 输出同目录下的 二年级上册数学.txt
+```
+
+依赖 Apple Vision Framework（macOS Ventura+），无需安装第三方库。
+
+## 提交
+
+```bash
+git-cz --non-interactive --type docs --scope pdf --subject "<描述>"
+```
